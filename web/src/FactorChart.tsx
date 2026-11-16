@@ -346,7 +346,6 @@ function FactorChart() {
             </button>
           </div>
           <p className="factor-agent-disclaimer">
-            Runs only when you click. Requires an OpenAI API key and may incur API charges.
             Suppression details are reported only when a PSI source discusses them; this is not
             emergency or operational fire-response guidance.
           </p>

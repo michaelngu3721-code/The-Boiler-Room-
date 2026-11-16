@@ -456,7 +456,7 @@ function PSIInvestigationExplorer() {
               <section className="investigation-agent-card" aria-label="Agent explanation">
                 <div className="investigation-agent-heading">
                   <div>
-                    <span className="card-kicker">OPTIONAL AI GUIDE</span>
+                    <span className="card-kicker">AI GUIDE</span>
                     <h2>Explain this investigation simply</h2>
                     <p>
                       The agent will restate the PSI record's goal, method, and hypothesis in
@@ -471,9 +471,6 @@ function PSIInvestigationExplorer() {
                     {isExplaining ? 'Preparing explanation…' : 'Ask the agent'}
                   </button>
                 </div>
-                <small className="investigation-agent-cost">
-                  Only runs when you click. Requires an OpenAI API key and may incur usage charges.
-                </small>
                 {explanationError && (
                   <p className="investigation-error" role="alert">{explanationError}</p>
                 )}

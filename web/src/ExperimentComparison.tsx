@@ -393,7 +393,7 @@ function ExperimentComparison({ dataPoints }: ExperimentComparisonProps) {
             >
               {isExplaining ? 'Agent is explaining...' : explanation ? 'Explain again' : 'Explain with agent'}
             </button>
-            <span>The Python tool performs the arithmetic; AI provides an optional explanation.</span>
+            <span>The Python tool performs the arithmetic; the agent adds context to the comparison.</span>
           </div>
           {explanationError && (
             <p className="comparison-error" role="alert">{explanationError}</p>

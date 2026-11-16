@@ -225,7 +225,6 @@ function ResearchGaps() {
       </section>
 
       <p className="research-gaps-disclaimer">
-        Analysis runs only when requested, requires an OpenAI API key, and may incur API charges.
         These are hypotheses about the records returned by the PSI combustion search—not proof
         that a topic is missing from the wider research literature or a substitute for expert review.
       </p>

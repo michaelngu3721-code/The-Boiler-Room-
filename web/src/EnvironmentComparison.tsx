@@ -305,8 +305,7 @@ function EnvironmentComparison() {
       <p className="environment-disclaimer">
         The ISS option means the pressurized cabin. Moon and Mars surface conditions are not the
         same as conditions inside a future habitat. This is educational context, not emergency
-        response guidance. Selecting an environment uses the configured OpenAI service and may
-        incur API charges.
+        response guidance.
       </p>
 
       {selected && (
