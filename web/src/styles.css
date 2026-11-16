@@ -5020,7 +5020,7 @@ h1 {
 
 .theme-dark .main-content,
 .theme-dark .page-content {
-  background: var(--dark-page);
+  background: transparent;
 }
 
 .theme-dark .sidebar,
@@ -5081,7 +5081,7 @@ h1 {
 }
 
 .theme-dark .topbar {
-  background: rgba(18, 31, 43, 0.94);
+  background: rgba(5, 8, 15, 0.82);
   backdrop-filter: blur(12px);
 }
 
@@ -5484,17 +5484,33 @@ h1 {
 }
 
 .theme-dark {
-  --dark-page: #0b141d;
-  --dark-surface: #111e29;
-  --dark-raised: #172733;
-  --dark-border: #2a3c4a;
+  --dark-page: #03050a;
+  --dark-surface: rgba(15, 20, 31, 0.84);
+  --dark-raised: rgba(22, 29, 43, 0.8);
+  --dark-border: rgba(143, 162, 190, 0.25);
   --dark-text: #e5edf2;
   --dark-muted: #a7b6c1;
   --dark-accent: #75d1c1;
+  position: relative;
+  isolation: isolate;
+}
+
+.theme-dark::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 22px 34px, rgba(255, 255, 255, 0.82) 99%, transparent),
+    radial-gradient(1px 1px at 118px 92px, rgba(190, 211, 255, 0.68) 99%, transparent),
+    radial-gradient(2px 2px at 184px 157px, rgba(255, 255, 255, 0.62) 99%, transparent),
+    radial-gradient(ellipse at 50% 0%, rgba(45, 59, 96, 0.16), transparent 68%);
+  background-size: 220px 190px, 280px 230px, 340px 290px, 100% 100%;
+  content: '';
+  pointer-events: none;
 }
 
 .theme-dark .sidebar {
-  background: #0e1923;
+  background: rgba(8, 12, 20, 0.86);
 }
 
 .theme-dark .nav-item {
@@ -5528,7 +5544,11 @@ h1 {
 }
 
 .theme-dark .research-gaps-overview {
-  background: linear-gradient(120deg, #142a30, var(--dark-surface) 72%);
+  background: linear-gradient(
+    120deg,
+    rgba(20, 42, 48, 0.86),
+    var(--dark-surface) 72%
+  );
 }
 
 .theme-dark :is(button, a, input, select):focus-visible {
@@ -5648,7 +5668,7 @@ h1 {
 
 .theme-dark .section-bridge {
   border-color: #35515e;
-  background: #12222c;
+  background: rgba(18, 34, 44, 0.82);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
@@ -5758,8 +5778,12 @@ h1 {
 }
 
 .theme-dark .learning-bookend {
-  border-color: #2b414e;
-  background: linear-gradient(120deg, #14262d, #111e29 78%);
+  border-color: var(--dark-border);
+  background: linear-gradient(
+    120deg,
+    rgba(20, 38, 45, 0.86),
+    rgba(17, 30, 41, 0.82) 78%
+  );
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.16);
 }
 
