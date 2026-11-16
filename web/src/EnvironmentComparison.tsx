@@ -221,14 +221,14 @@ function EnvironmentComparison() {
       })
       const payload = await readResponse(response)
       if (!isEnvironmentExplanation(payload, environment)) {
-        throw new Error('The agent returned an invalid environment safety analysis.')
+        throw new Error("I couldn't provide a valid environment safety analysis.")
       }
       if (!controller.signal.aborted) setExplanation(payload)
     } catch (requestError) {
       if (controller.signal.aborted) return
       setError(
         requestError instanceof TypeError
-          ? 'Could not connect to the agent. Check that the local API is running.'
+          ? "I couldn't connect to the safety analysis service. Make sure the project API is running."
           : requestError instanceof Error
             ? requestError.message
             : 'The environment safety analysis could not be loaded.',
@@ -312,7 +312,7 @@ function EnvironmentComparison() {
         <section className="environment-analysis" aria-labelledby="environment-analysis-title">
           <div className="environment-analysis-heading">
             <div>
-              <span className="card-kicker">AGENT SAFETY ANALYSIS</span>
+              <span className="card-kicker">MY SAFETY ANALYSIS</span>
               <h2 id="environment-analysis-title">Fire safety in {selected.label}</h2>
             </div>
             {isLoading && <span className="environment-loading-dot" aria-hidden="true" />}

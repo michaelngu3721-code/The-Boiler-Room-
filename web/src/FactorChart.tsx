@@ -210,7 +210,7 @@ function FactorChart() {
       })
       const payload = await readResponse(response)
       if (!isFactorExplanation(payload, factor)) {
-        throw new Error('The agent returned an invalid factor explanation.')
+        throw new Error("I couldn't provide a valid factor explanation.")
       }
       if (!controller.signal.aborted) setFactorExplanation(payload)
     } catch (requestError) {
@@ -220,7 +220,7 @@ function FactorChart() {
           ? 'Could not connect to the explanation service. Check that the local API is running.'
           : requestError instanceof Error
             ? requestError.message
-            : 'The factor explanation could not be loaded.',
+            : "I couldn't prepare the factor explanation.",
       )
     } finally {
       if (explanationController.current === controller) {
@@ -332,7 +332,7 @@ function FactorChart() {
               <span className="card-kicker">PSI-BACKED EXPLANATION</span>
               <h2 id="factor-agent-title">Explore {selected.factor}</h2>
               <p>
-                Ask the agent for three study-based points about combustion, fire safety, and
+                Ask me for three study-based points about combustion, fire safety, and
                 suppression.
               </p>
             </div>
@@ -342,7 +342,7 @@ function FactorChart() {
               onClick={() => void explainSelectedFactor()}
               type="button"
             >
-              {isExplaining ? 'Analyzing studies…' : 'Ask the agent'}
+              {isExplaining ? "I'm reviewing studies…" : 'Ask me'}
             </button>
           </div>
           <p className="factor-agent-disclaimer">
@@ -352,7 +352,7 @@ function FactorChart() {
 
           {isExplaining && (
             <p className="factor-agent-message" role="status">
-              Reviewing three relevant NASA PSI records…
+              I'm reviewing three relevant NASA PSI records…
             </p>
           )}
           {explanationError && (

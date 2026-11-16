@@ -244,7 +244,7 @@ function PSIInvestigationExplorer() {
       )
       const payload = await readResponse(response)
       if (!isInvestigationExplanation(payload)) {
-        throw new Error('The agent returned an incomplete explanation.')
+        throw new Error("I couldn't provide a complete explanation.")
       }
       setExplanation(payload)
     } catch (error) {
@@ -254,7 +254,7 @@ function PSIInvestigationExplorer() {
           ? 'Could not reach the explanation service. Make sure the project API is running.'
           : error instanceof Error
             ? error.message
-            : 'The agent could not explain this investigation.',
+            : "I couldn't explain this investigation.",
       )
     } finally {
       if (explanationController.current === controller) {
@@ -453,13 +453,13 @@ function PSIInvestigationExplorer() {
                 )}
               </article>
 
-              <section className="investigation-agent-card" aria-label="Agent explanation">
+              <section className="investigation-agent-card" aria-label="I explain this investigation">
                 <div className="investigation-agent-heading">
                   <div>
-                    <span className="card-kicker">AI GUIDE</span>
+                    <span className="card-kicker">I'M YOUR GUIDE</span>
                     <h2>Explain this investigation simply</h2>
                     <p>
-                      The agent will restate the PSI record's goal, method, and hypothesis in
+                      I'll restate the PSI record's goal, method, and hypothesis in
                       everyday language.
                     </p>
                   </div>
@@ -468,7 +468,7 @@ function PSIInvestigationExplorer() {
                     onClick={explainSelectedInvestigation}
                     type="button"
                   >
-                    {isExplaining ? 'Preparing explanation…' : 'Ask the agent'}
+                    {isExplaining ? 'Preparing my explanation…' : 'Ask me'}
                   </button>
                 </div>
                 {explanationError && (

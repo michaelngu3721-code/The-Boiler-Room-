@@ -155,7 +155,7 @@ function ExperimentComparison({ dataPoints }: ExperimentComparisonProps) {
     } catch (requestError) {
       setError(
         requestError instanceof TypeError
-          ? 'Could not reach the calculation service. Start it with: uv run uvicorn agent.api:app --reload'
+          ? "I couldn't calculate the comparison. Make sure the project API is running."
           : requestError instanceof Error
             ? requestError.message
             : 'The comparison could not be completed.',
@@ -190,16 +190,16 @@ function ExperimentComparison({ dataPoints }: ExperimentComparisonProps) {
       const payload: unknown = await response.json()
       if (!response.ok) throw new Error(getApiError(payload))
       if (!isRecord(payload) || typeof payload.explanation !== 'string') {
-        throw new Error('The agent returned an invalid explanation.')
+        throw new Error("I couldn't provide a valid explanation.")
       }
       setExplanation(payload.explanation)
     } catch (requestError) {
       setExplanationError(
         requestError instanceof TypeError
-          ? 'Could not reach the agent service. Start it with: uv run uvicorn agent.api:app --reload'
+          ? "I couldn't reach the comparison explanation service. Make sure the project API is running."
           : requestError instanceof Error
             ? requestError.message
-            : 'The agent could not explain this comparison.',
+            : "I couldn't explain this comparison.",
       )
     } finally {
       setIsExplaining(false)
@@ -332,7 +332,7 @@ function ExperimentComparison({ dataPoints }: ExperimentComparisonProps) {
           onClick={runComparison}
           type="button"
         >
-          {isLoading ? 'Calculating...' : isExplaining ? 'Agent explaining...' : 'Calculate difference'}
+          {isLoading ? 'Calculating...' : isExplaining ? "I'm explaining..." : 'Calculate difference'}
           {!isLoading && !isExplaining && <span aria-hidden="true">→</span>}
         </button>
       </div>
@@ -391,16 +391,16 @@ function ExperimentComparison({ dataPoints }: ExperimentComparisonProps) {
               onClick={explainResult}
               type="button"
             >
-              {isExplaining ? 'Agent is explaining...' : explanation ? 'Explain again' : 'Explain with agent'}
+              {isExplaining ? "I'm explaining..." : explanation ? 'Explain again' : 'Explain with me'}
             </button>
-            <span>The Python tool performs the arithmetic; the agent adds context to the comparison.</span>
+            <span>The Python tool performs the arithmetic; I add context to the comparison.</span>
           </div>
           {explanationError && (
             <p className="comparison-error" role="alert">{explanationError}</p>
           )}
           {explanation && (
             <div className="comparison-agent-explanation" aria-live="polite">
-              <span className="card-kicker">AGENT EXPLANATION</span>
+              <span className="card-kicker">MY EXPLANATION</span>
               <p>{explanation}</p>
             </div>
           )}

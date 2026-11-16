@@ -152,7 +152,7 @@ function ResearchGaps() {
       })
       const payload = await readResponse(response)
       if (!isResearchGapsResponse(payload)) {
-        throw new Error('The agent returned invalid or unsupported research-gap data.')
+        throw new Error("I couldn't provide valid research-gap analysis.")
       }
       if (!controller.signal.aborted) setResults(payload)
     } catch (requestError) {
@@ -162,7 +162,7 @@ function ResearchGaps() {
           ? 'Could not connect to the PSI analysis service. Check that the local API is running.'
           : requestError instanceof Error
             ? requestError.message
-            : 'The PSI research sample could not be analyzed.',
+            : "I couldn't analyze the PSI research sample.",
       )
     } finally {
       if (requestController.current === controller) {
@@ -210,8 +210,8 @@ function ResearchGaps() {
           <span className="card-kicker">POTENTIAL RESEARCH OPPORTUNITIES</span>
           <h2 id="research-gaps-overview-title">What might be worth studying next?</h2>
           <p>
-            The agent compares goals, methods, conditions, and limitations described in the
-            available PSI records, then suggests three questions for further investigation.
+            I compare goals, methods, conditions, and limitations in the available PSI records,
+            then suggest three questions for further investigation.
           </p>
         </div>
         <button
