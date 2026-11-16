@@ -149,21 +149,29 @@ function App() {
 
         <section
           aria-labelledby="learning-intro-title"
-          className="learning-bookend learning-intro"
+          className="learning-bookend learning-intro learning-bookend-text-left"
         >
-          <span className="learning-bookend-kicker">START HERE</span>
-          <h2 id="learning-intro-title">Welcome to The Boiler Room</h2>
-          <p>
-            Fire has been integral to humanity since our beginnings. Even now,
-            it remains a massive part of life around the globe, but throughout
-            history it has also demonstrated great destructive power. As we
-            explore new horizons, fire remains a serious hazard. The Apollo 1
-            tragedy demonstrated how quickly a fire in a pressurized,
-            oxygen-rich spacecraft cabin can become deadly. In this interactive
-            dashboard, you&apos;ll explore fire behavior in space-related
-            environments and learn key safety considerations as we work to
-            prevent future disasters while exploring what&apos;s out there.
-          </p>
+          <div className="learning-bookend-bubble">
+            <span className="learning-bookend-kicker">START HERE</span>
+            <h2 id="learning-intro-title">Welcome to The Boiler Room</h2>
+            <p>
+              Fire has been integral to humanity since our beginnings. Even now,
+              it remains a massive part of life around the globe, but throughout
+              history it has also demonstrated great destructive power. As we
+              explore new horizons, fire remains a serious hazard. The Apollo 1
+              tragedy demonstrated how quickly a fire in a pressurized,
+              oxygen-rich spacecraft cabin can become deadly. In this interactive
+              dashboard, you&apos;ll explore fire behavior in space-related
+              environments and learn key safety considerations as we work to
+              prevent future disasters while exploring what&apos;s out there.
+            </p>
+          </div>
+          <img
+            alt="The Boiler Room mascot"
+            className="learning-bookend-mascot"
+            decoding="async"
+            src="/images/mascot-left.png"
+          />
         </section>
 
         {modules.map((item, index) => (
@@ -348,17 +356,25 @@ function App() {
 
         <section
           aria-labelledby="learning-outro-title"
-          className="learning-bookend learning-outro"
+          className="learning-bookend learning-outro learning-bookend-text-right"
         >
-          <span className="learning-bookend-kicker">OUTRO</span>
-          <h2 id="learning-outro-title">Bring the ideas together</h2>
-          <p>
-            Congratulations! You&apos;ve made it through this exploration of
-            combustion. I hope you&apos;ve learned something from experimenting
-            and reviewing the research, and that you can carry these insights
-            forward as humanity continues to explore. Best of luck, and thank
-            you for visiting The Boiler Room!
-          </p>
+          <div className="learning-bookend-bubble">
+            <span className="learning-bookend-kicker">OUTRO</span>
+            <h2 id="learning-outro-title">Bring the ideas together</h2>
+            <p>
+              Congratulations! You&apos;ve made it through this exploration of
+              combustion. I hope you&apos;ve learned something from experimenting
+              and reviewing the research, and that you can carry these insights
+              forward as humanity continues to explore. Best of luck, and thank
+              you for visiting The Boiler Room!
+            </p>
+          </div>
+          <img
+            alt="The Boiler Room mascot"
+            className="learning-bookend-mascot"
+            decoding="async"
+            src="/images/mascot-right.png"
+          />
         </section>
       </main>
     </div>

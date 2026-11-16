@@ -5636,11 +5636,13 @@ h1 {
   margin: 30px auto 60px;
 }
 
-.section-bridge-text-right {
+.section-bridge-text-right,
+.learning-bookend-text-right {
   flex-direction: row-reverse;
 }
 
-.section-bridge-bubble {
+.section-bridge-bubble,
+.learning-bookend-bubble {
   position: relative;
   flex: 1;
   min-width: 0;
@@ -5651,7 +5653,8 @@ h1 {
   box-shadow: 0 12px 28px rgba(15, 30, 48, 0.13);
 }
 
-.section-bridge-bubble::after {
+.section-bridge-bubble::after,
+.learning-bookend-bubble::after {
   position: absolute;
   top: 50%;
   right: -11px;
@@ -5666,13 +5669,15 @@ h1 {
   content: '';
 }
 
-.section-bridge-text-right .section-bridge-bubble::after {
+.section-bridge-text-right .section-bridge-bubble::after,
+.learning-bookend-text-right .learning-bookend-bubble::after {
   right: auto;
   left: -11px;
   transform: translateY(-50%) rotate(225deg);
 }
 
-.section-bridge-mascot {
+.section-bridge-mascot,
+.learning-bookend-mascot {
   display: block;
   width: clamp(140px, 18vw, 190px);
   max-width: 30%;
@@ -5701,13 +5706,15 @@ h1 {
   box-shadow: none;
 }
 
-.theme-dark .section-bridge-bubble {
+.theme-dark .section-bridge-bubble,
+.theme-dark .learning-bookend-bubble {
   border-color: rgba(143, 162, 190, 0.34);
   background: rgba(14, 20, 32, 0.9);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
 }
 
-.theme-dark .section-bridge-bubble::after {
+.theme-dark .section-bridge-bubble::after,
+.theme-dark .learning-bookend-bubble::after {
   border-color: rgba(143, 162, 190, 0.34);
   border-bottom: 0;
   border-left: 0;
@@ -5742,13 +5749,11 @@ h1 {
 }
 
 .learning-bookend {
+  display: flex;
   width: min(1080px, calc(100% - 48px));
+  align-items: center;
+  gap: clamp(14px, 3vw, 34px);
   margin: 34px auto 52px;
-  padding: 28px 32px;
-  border: 1px solid #dbe6e8;
-  border-radius: 18px;
-  background: linear-gradient(120deg, #f3f8f6, #fff 78%);
-  box-shadow: 0 12px 30px rgba(27, 47, 66, 0.06);
 }
 
 .learning-outro {
@@ -5763,7 +5768,7 @@ h1 {
   letter-spacing: 0.12em;
 }
 
-.learning-bookend h2 {
+.learning-bookend-bubble h2 {
   margin: 8px 0 0;
   color: #263f50;
   font-family: Manrope, 'Segoe UI', sans-serif;
@@ -5771,12 +5776,12 @@ h1 {
   letter-spacing: -0.035em;
 }
 
-.learning-bookend p {
-  max-width: 760px;
+.learning-bookend-bubble p {
+  max-width: 860px;
   margin: 8px 0 0;
   color: #71818d;
-  font-size: 13px;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .section-bridge-title {
@@ -5798,20 +5803,16 @@ h1 {
 }
 
 .theme-dark .learning-bookend {
-  border-color: var(--dark-border);
-  background: linear-gradient(
-    120deg,
-    rgba(20, 38, 45, 0.86),
-    rgba(17, 30, 41, 0.82) 78%
-  );
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.16);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .theme-dark .learning-bookend-kicker {
   color: var(--dark-accent);
 }
 
-.theme-dark .learning-bookend h2 {
+.theme-dark .learning-bookend-bubble h2 {
   color: var(--dark-text);
 }
 
@@ -5819,7 +5820,7 @@ h1 {
   color: var(--dark-text);
 }
 
-.theme-dark .learning-bookend p {
+.theme-dark .learning-bookend-bubble p {
   color: var(--dark-muted);
 }
 
@@ -5831,7 +5832,6 @@ h1 {
   .learning-bookend {
     width: calc(100% - 36px);
     margin: 24px auto 36px;
-    padding: 22px 20px;
   }
 
   .learning-outro {
@@ -5884,6 +5884,43 @@ h1 {
   }
 
   .section-bridge-text-right .section-bridge-mascot {
+    align-self: flex-start;
+  }
+
+  .learning-bookend,
+  .learning-bookend.learning-bookend-text-right {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .learning-bookend-bubble {
+    padding: 21px 20px;
+  }
+
+  .learning-bookend-bubble::after,
+  .learning-bookend-text-right .learning-bookend-bubble::after {
+    top: auto;
+    right: 34px;
+    bottom: -11px;
+    left: auto;
+    transform: rotate(135deg);
+  }
+
+  .learning-bookend-text-right .learning-bookend-bubble::after {
+    right: auto;
+    left: 34px;
+    transform: rotate(225deg);
+  }
+
+  .learning-bookend-mascot {
+    width: 128px;
+    max-width: 42%;
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+
+  .learning-bookend-text-right .learning-bookend-mascot {
     align-self: flex-start;
   }
 }
