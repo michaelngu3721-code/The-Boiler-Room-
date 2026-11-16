@@ -318,17 +318,29 @@ function App() {
                 aria-label={`Transition from ${item.label} to ${
                   modules[index + 1]?.label
                 }`}
-                className="section-bridge"
+                className={`section-bridge ${
+                  index % 2 === 0
+                    ? 'section-bridge-text-left'
+                    : 'section-bridge-text-right'
+                }`}
               >
-                <span aria-hidden="true" className="section-bridge-mark">
-                  ↳
-                </span>
-                <div>
+                <div className="section-bridge-bubble">
                   <h2 className="section-bridge-title">
                     {bridgeTitleByModule[item.id]}
                   </h2>
                   <p>{bridgeTextByModule[item.id]}</p>
                 </div>
+                <img
+                  alt="The Boiler Room mascot"
+                  className="section-bridge-mascot"
+                  decoding="async"
+                  loading="lazy"
+                  src={
+                    index % 2 === 0
+                      ? '/images/mascot-left.png'
+                      : '/images/mascot-right.png'
+                  }
+                />
               </aside>
             )}
           </Fragment>

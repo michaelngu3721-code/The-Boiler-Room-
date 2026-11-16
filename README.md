@@ -1,5 +1,14 @@
 # NASA Combustion Research Dashboard
 
+The developer created the primary framework as well as the bridges
+between the modules. The rest of the script was primarily written
+by SI. 
+
+Imagery in the "Environment Comparison" module was produced by SI.
+The candle light images were created by SI, but that is inherent to
+be able to modify the flame accordingly. Our knight mascot image was
+produced by Johnny Trinh.
+
 The dashboard combines an illustrative gravity visualizer, an environment
 comparison, and a browser for NASA Physical Sciences Informatics (PSI)
 combustion investigations. The investigation explorer loads records directly
